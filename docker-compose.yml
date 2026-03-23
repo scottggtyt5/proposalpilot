@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  proposalpilot:
+    build: .
+    ports:
+      - '3000:3000'
+    environment:
+      NODE_ENV: development
+      NEXT_TELEMETRY_DISABLED: 1
+      # Add your environment variables here
+      # OPENAI_API_KEY: ${OPENAI_API_KEY}
+      # STRIPE_SECRET_KEY: ${STRIPE_SECRET_KEY}
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    command: npm run dev
+    restart: unless-stopped

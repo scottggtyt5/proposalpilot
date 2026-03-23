@@ -1,0 +1,8 @@
+{
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
+  "env": {
+    "NEXT_PUBLIC_APP_URL": "@next_public_app_url"
+  },
+  "envPrefix": "OPENAI_API_KEY,ANTHROPIC_API_KEY,STRIPE_SECRET_KEY,NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,STRIPE_PRICE_ID_PRO,STRIPE_PRICE_ID_AGENCY,NEXT_PUBLIC_APP_URL"
+}
