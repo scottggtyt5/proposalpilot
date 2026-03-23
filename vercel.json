@@ -1,8 +1,14 @@
 {
   "buildCommand": "npm run build",
-  "installCommand": "npm install",
-  "env": {
-    "NEXT_PUBLIC_APP_URL": "@next_public_app_url"
-  },
-  "envPrefix": "OPENAI_API_KEY,ANTHROPIC_API_KEY,STRIPE_SECRET_KEY,NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,STRIPE_PRICE_ID_PRO,STRIPE_PRICE_ID_AGENCY,NEXT_PUBLIC_APP_URL"
+  "installCommand": "npm install"
 }
+```
+3. Click **"Commit changes"**
+
+That commit will automatically trigger a new Vercel deployment since it's connected to your repo. 
+
+Alternatively, if you still have the proposalpilot folder on your Mac, you can run these commands in Terminal:
+```
+cd ~/path-to-proposalpilot
+echo '{"buildCommand":"npm run build","installCommand":"npm install"}' > vercel.json
+git add vercel.json && git commit -m "Fix vercel.json" && git push
