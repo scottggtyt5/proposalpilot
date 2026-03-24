@@ -2,7 +2,7 @@
 
 export function RaceTrackAnimation() {
   const competitors = [
-    { name: 'ProposalPilot', time: '47s', color: 'from-primary to-accent' },
+    { name: 'QuickProp', time: '47s', color: 'from-primary to-accent' },
     { name: 'PandaDoc', time: '8m 30s', color: 'from-gray-600 to-gray-500' },
     { name: 'Proposify', time: '12m 15s', color: 'from-gray-600 to-gray-500' },
     { name: 'Manual Process', time: '45m', color: 'from-gray-600 to-gray-500' },
@@ -45,7 +45,7 @@ export function RaceTrackAnimation() {
 
       <div className="mt-8 p-4 bg-primary/10 border border-primary/50 rounded-lg">
         <p className="text-sm text-primary font-semibold text-center">
-          🚀 ProposalPilot is <span className="text-accent">18x faster</span> than the manual process
+          ð QuickProp is <span className="text-accent">18x faster</span> than the manual process
         </p>
       </div>
     </div>
