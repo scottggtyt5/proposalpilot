@@ -47,21 +47,21 @@ function generateProposalFromTemplate(data: GenerateRequest): string {
     .slice(0, 5);
 
   const keyPoints = notes
-    .map((note) => `  • ${note.trim().substring(0, 100)}`)
+    .map((note) => `  â¢ ${note.trim().substring(0, 100)}`)
     .join('\n');
 
   return `PROPOSAL
 
 ${data.businessName}
-═════════════════════════════════════════════════════════════════
+âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 
 PROPOSAL FOR: ${data.clientName}
 DATE: ${date}
 INDUSTRY: ${data.industry}
 
-═════════════════════════════════════════════════════════════════
+âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 EXECUTIVE SUMMARY
-═════════════════════════════════════════════════════════════════
+âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 
 ${toneText.intro}
 
@@ -69,38 +69,38 @@ As a leading ${data.industry} solutions provider, we understand the unique
 challenges and opportunities in your space. This proposal details our
 comprehensive approach to driving success.
 
-═════════════════════════════════════════════════════════════════
+âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 SCOPE OF WORK
-═════════════════════════════════════════════════════════════════
+âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 
 Based on our discussion, we've identified the following key initiatives:
 
 ${keyPoints}
 
-═════════════════════════════════════════════════════════════════
+âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 OUR APPROACH
-═════════════════════════════════════════════════════════════════
+âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 
 ${toneText.approach}
 
 Phase 1: Discovery & Planning
-  • Comprehensive assessment of current state
-  • Goal alignment and success metrics definition
-  • Resource planning and timeline development
+  â¢ Comprehensive assessment of current state
+  â¢ Goal alignment and success metrics definition
+  â¢ Resource planning and timeline development
 
 Phase 2: Implementation
-  • Solution design and architecture
-  • Iterative development and testing
-  • Stakeholder communication and feedback integration
+  â¢ Solution design and architecture
+  â¢ Iterative development and testing
+  â¢ Stakeholder communication and feedback integration
 
 Phase 3: Optimization & Support
-  • Performance monitoring and optimization
-  • Training and documentation
-  • Ongoing support and continuous improvement
+  â¢ Performance monitoring and optimization
+  â¢ Training and documentation
+  â¢ Ongoing support and continuous improvement
 
-═════════════════════════════════════════════════════════════════
+âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 PROJECT TIMELINE
-═════════════════════════════════════════════════════════════════
+âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 
 Project Duration: ${data.timeline || 'To be determined based on scope'}
 
@@ -108,37 +108,37 @@ Project Duration: ${data.timeline || 'To be determined based on scope'}
   Week 3-6: Implementation Phase
   Week 7+: Launch & Optimization
 
-═════════════════════════════════════════════════════════════════
+âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 INVESTMENT
-═════════════════════════════════════════════════════════════════
+âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 
 Project Investment: ${data.budget || 'Custom quote based on final scope'}
 
 This investment includes:
-  ✓ Complete solution delivery
-  ✓ Implementation and deployment
-  ✓ Team training and documentation
-  ✓ 30 days of post-launch support
+  â Complete solution delivery
+  â Implementation and deployment
+  â Team training and documentation
+  â 30 days of post-launch support
 
-═════════════════════════════════════════════════════════════════
+âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 WHY CHOOSE US
-═════════════════════════════════════════════════════════════════
+âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 
-  ✓ Industry expertise and proven track record
-  ✓ Client-focused approach with dedicated support
-  ✓ Transparent communication and reporting
-  ✓ Commitment to delivering measurable results
+  â Industry expertise and proven track record
+  â Client-focused approach with dedicated support
+  â Transparent communication and reporting
+  â Commitment to delivering measurable results
 
-═════════════════════════════════════════════════════════════════
+âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 NEXT STEPS
-═════════════════════════════════════════════════════════════════
+âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 
 1. Review this proposal and provide feedback
 2. Schedule a kickoff meeting to finalize details
 3. Sign agreement and initiate project planning
 4. Begin Phase 1: Discovery & Planning
 
-═════════════════════════════════════════════════════════════════
+âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 
 This proposal is valid for 30 days from the date above.
 
@@ -147,7 +147,7 @@ Thank you for the opportunity to work with ${data.clientName}.
 We look forward to partnering with you!
 
 ${data.businessName}
-═════════════════════════════════════════════════════════════════`;
+âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ`;
 }
 
 // AI-powered proposal generator (when API key is available)
@@ -237,7 +237,7 @@ export async function POST(request: NextRequest) {
       {
         proposal,
         generatedAt: new Date().toISOString(),
-        generationTime: 0.47, // ~47 seconds target (we'll measure client-side)
+        generationTime: 0.30, // ~30 seconds target (we'll measure client-side)
       },
       { status: 200 }
     );
