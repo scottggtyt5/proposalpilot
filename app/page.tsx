@@ -40,11 +40,11 @@ export default function Home() {
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
         <div className="inline-block mb-6 px-4 py-2 bg-primary/10 border border-primary/50 rounded-full text-primary text-sm font-semibold">
-          ⚡ Generate in 47 Seconds
+          ⚡ Generate in 30 Seconds
         </div>
 
         <h1 className="text-6xl font-bold mb-6 animate-slide-in">
-          Professional Proposals in <span className="gradient-text">47 Seconds</span>
+          Professional Proposals in <span className="gradient-text">30 Seconds</span>
         </h1>
 
         <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto animate-slide-in">
@@ -69,7 +69,7 @@ export default function Home() {
         {/* Speed Metric */}
         <div className="inline-flex gap-12 text-center mb-12">
           <div>
-            <div className="text-4xl font-bold text-primary">47s</div>
+            <div className="text-4xl font-bold text-primary">30s</div>
             <div className="text-sm text-gray-400">Average Generation Time</div>
           </div>
           <div>
@@ -112,7 +112,7 @@ export default function Home() {
         <div className="bg-gradient-to-r from-primary/20 to-accent/20 border border-primary/50 rounded-2xl p-12">
           <h2 className="text-4xl font-bold mb-6">Ready to Save Hours?</h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Your first 5 proposals are free. No credit card required. Start generating in 47 seconds.
+            Your first 5 proposals are free. No credit card required. Start generating in 30 seconds.
           </p>
           <Link
             href="/generate"
