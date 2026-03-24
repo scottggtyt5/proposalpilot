@@ -3,7 +3,7 @@
 const features = [
   {
     icon: '⚡',
-    title: '47 Seconds',
+    title: '30 Seconds',
     description: 'Generate complete proposals in under a minute. No waiting, no delays.',
   },
   {
