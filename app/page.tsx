@@ -40,7 +40,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
         <div className="inline-block mb-6 px-4 py-2 bg-primary/10 border border-primary/50 rounded-full text-primary text-sm font-semibold">
-          â¡ Generate in 47 Seconds
+          ⚡ Generate in 47 Seconds
         </div>
 
         <h1 className="text-6xl font-bold mb-6 animate-slide-in">
