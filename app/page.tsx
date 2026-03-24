@@ -19,7 +19,7 @@ export default function Home() {
       {/* Navigation */}
       <nav className="sticky top-0 z-50 border-b border-dark-border bg-dark-bg/80 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-          <div className="text-2xl font-bold gradient-text">ProposalPilot</div>
+          <div className="text-2xl font-bold gradient-text">QuickProp</div>
           <div className="flex gap-6 items-center">
             <Link href="/generate" className="text-sm hover:text-primary transition">
               Try Now
@@ -40,7 +40,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
         <div className="inline-block mb-6 px-4 py-2 bg-primary/10 border border-primary/50 rounded-full text-primary text-sm font-semibold">
-          ⚡ Generate in 47 Seconds
+          â¡ Generate in 47 Seconds
         </div>
 
         <h1 className="text-6xl font-bold mb-6 animate-slide-in">
@@ -94,7 +94,7 @@ export default function Home() {
       {/* Features Section */}
       <section id="features" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <h2 className="text-4xl font-bold text-center mb-12">
-          Why Teams Choose <span className="gradient-text">ProposalPilot</span>
+          Why Teams Choose <span className="gradient-text">QuickProp</span>
         </h2>
         <FeatureGrid />
       </section>
@@ -126,7 +126,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="border-t border-dark-border py-12 mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400">
-          <p>&copy; 2024 ProposalPilot. Built for speed. Optimized for results.</p>
+          <p>&copy; 2024 QuickProp. Built for speed. Optimized for results.</p>
         </div>
       </footer>
     </div>
