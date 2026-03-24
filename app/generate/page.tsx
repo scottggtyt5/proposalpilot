@@ -62,7 +62,7 @@ export default function GeneratePage() {
       <nav className="border-b border-dark-border bg-dark-bg/80 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
           <Link href="/" className="text-2xl font-bold gradient-text hover:opacity-80">
-            ProposalPilot
+            QuickProp
           </Link>
           <div className="flex gap-4">
             <Link href="/" className="text-sm hover:text-primary transition">
@@ -119,7 +119,7 @@ export default function GeneratePage() {
             ) : (
               <div className="card-dark p-8 rounded-lg h-96 flex items-center justify-center">
                 <div className="text-center">
-                  <div className="text-5xl mb-4">📄</div>
+                  <div className="text-5xl mb-4">ð</div>
                   <p className="text-gray-400">
                     Fill in the form and your proposal will appear here
                   </p>
@@ -132,7 +132,7 @@ export default function GeneratePage() {
         {/* Usage Info */}
         <div className="mt-12 p-6 bg-primary/10 border border-primary/50 rounded-lg">
           <p className="text-center text-sm text-gray-300">
-            💡 <span className="font-semibold">Free tier:</span> 5 proposals per month. Upgrade to Pro for unlimited generation.
+            ð¡ <span className="font-semibold">Free tier:</span> 5 proposals per month. Upgrade to Pro for unlimited generation.
           </p>
         </div>
       </div>
