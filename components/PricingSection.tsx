@@ -154,7 +154,7 @@ export function PricingSection() {
             <div className="space-y-4">
               {plan.features.map((feature) => (
                 <div key={feature} className="flex items-start gap-3">
-                  <span className="text-accent mt-1">â</span>
+                  <span className="text-accent mt-1">✓</span>
                   <span className="text-gray-300">{feature}</span>
                 </div>
               ))}
