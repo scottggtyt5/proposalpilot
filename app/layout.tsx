@@ -2,11 +2,11 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'QuickProp - Generate Proposals in 47 Seconds',
-  description: 'AI-powered proposal generation in ~47 seconds. Transform meeting notes into professional client proposals instantly.',
+  title: 'QuickProp - Generate Proposals in 30 Seconds',
+  description: 'AI-powered proposal generation in ~30 seconds. Transform meeting notes into professional client proposals with QuickProp.',
   keywords: ['proposals', 'AI', 'SaaS', 'sales', 'client proposals'],
   openGraph: {
-    title: 'QuickProp - 47 Second Proposals',
+    title: 'QuickProp - 30 Second Proposals',
     description: 'AI-powered proposal generation that respects your time.',
     url: 'https://quickprop.app',
     siteName: 'QuickProp',
@@ -21,8 +21,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'QuickProp - 47 Second Proposals',
-    description: 'AI-powered proposal generation in ~47 seconds',
+    title: 'QuickProp - 30 Second Proposals',
+    description: 'AI-powered proposal generation in ~30 seconds',
     images: ['https://quickprop.app/og-image.png'],
   },
 };
