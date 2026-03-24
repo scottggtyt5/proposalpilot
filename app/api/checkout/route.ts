@@ -5,6 +5,19 @@ interface CheckoutRequest {
   email: string;
 }
 
+const PLAN_CONFIG = {
+  pro: {
+    name: 'QuickProp Pro',
+    description: 'Unlimited proposals, all templates, custom branding, analytics',
+    amount: 4900, // $49.00 in cents
+  },
+  agency: {
+    name: 'QuickProp Agency',
+    description: 'Everything in Pro + white-label, custom integrations, dedicated support',
+    amount: 19900, // $199.00 in cents
+  },
+};
+
 export async function POST(request: NextRequest) {
   try {
     const data: CheckoutRequest = await request.json();
@@ -29,25 +42,18 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Map plan to Stripe price ID
-    const priceIds: Record<string, string | undefined> = {
-      pro: process.env.STRIPE_PRICE_ID_PRO,
-      agency: process.env.STRIPE_PRICE_ID_AGENCY,
-    };
-
-    const priceId = priceIds[data.plan];
-
-    if (!priceId) {
+    const planConfig = PLAN_CONFIG[data.plan];
+    if (!planConfig) {
       return NextResponse.json(
-        { error: `No price configured for plan: ${data.plan}` },
+        { error: `Unknown plan: ${data.plan}` },
         { status: 400 }
       );
     }
 
     // Get app URL
-    const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+    const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://quickprop.app';
 
-    // Import Stripe - dynamic import to avoid issues if package isn't installed
+    // Import Stripe
     let Stripe;
     try {
       const stripeModule = await import('stripe');
@@ -61,19 +67,41 @@ export async function POST(request: NextRequest) {
 
     const stripe = new Stripe(stripeSecretKey);
 
-    // Create checkout session
-    const session = await stripe.checkout.sessions.create({
-      line_items: [
-        {
-          price: priceId,
-          quantity: 1,
-        },
-      ],
+    // Check for existing price IDs first (if configured)
+    const priceIds: Record<string, string | undefined> = {
+      pro: process.env.STRIPE_PRICE_ID_PRO,
+      agency: process.env.STRIPE_PRICE_ID_AGENCY,
+    };
+
+    const existingPriceId = priceIds[data.plan];
+
+    // Create checkout session - use existing price ID if available, otherwise use price_data
+    const sessionConfig: Parameters<typeof stripe.checkout.sessions.create>[0] = {
       mode: 'subscription',
-      success_url: `${appUrl}/?checkout=success`,
+      success_url: `${appUrl}/generate?checkout=success`,
       cancel_url: `${appUrl}/?checkout=cancelled`,
       customer_email: data.email,
-    });
+      line_items: existingPriceId
+        ? [{ price: existingPriceId, quantity: 1 }]
+        : [
+            {
+              price_data: {
+                currency: 'usd',
+                product_data: {
+                  name: planConfig.name,
+                  description: planConfig.description,
+                },
+                unit_amount: planConfig.amount,
+                recurring: {
+                  interval: 'month',
+                },
+              },
+              quantity: 1,
+            },
+          ],
+    };
+
+    const session = await stripe.checkout.sessions.create(sessionConfig);
 
     return NextResponse.json(
       {
@@ -85,19 +113,18 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error('Checkout error:', error);
 
-    // Check if it's a Stripe-specific error
     if (
       error instanceof Error &&
-      error.message.includes('Invalid stripe secret key')
+      error.message.includes('Invalid API Key')
     ) {
       return NextResponse.json(
-        { error: 'Stripe configuration error' },
+        { error: 'Stripe configuration error. Please check your API key.' },
         { status: 500 }
       );
     }
 
     return NextResponse.json(
-      { error: 'Failed to create checkout session' },
+      { error: 'Failed to create checkout session. Please try again.' },
       { status: 500 }
     );
   }
